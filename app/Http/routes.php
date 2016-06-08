@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/estudiantes', 'EstudiantesController@mostrarEstudiantes');
+
 Route::get('/', function () {
     return view('principal');
 });
