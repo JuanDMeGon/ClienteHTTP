@@ -1,0 +1,38 @@
+*.sql
+
+# Laravel 5 specific
+/vendor
+/public/storage
+.env
+
+#Laravel Elixir#
+/node_modules
+npm-debug.log
+
+#Laravel Homestead#
+Homestead.yaml
+Homestead.json
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+*.sublime-project
+*.sublime-*
+
+# sftp configuration file
+sftp-config.json
+
+
+### Vagrant ###
+.vagrant/
+Vagrantfile
+.vagrant*
+start-virtual-machine.bat
+Envoy.blade.php
+long.sh
