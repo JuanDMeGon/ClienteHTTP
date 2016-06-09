@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use ClienteHTTP\Http\Requests;
 
+use ClienteHTTP\Http\Requests\UnicoRequest;
+
 class ProfesoresController extends Controller
 {
     public function mostrarProfesores()
@@ -24,5 +26,30 @@ class ProfesoresController extends Controller
     	$profesores = $datos->data;
 
     	return $profesores;
+    }
+
+    public function mostrarProfesor()
+    {
+        return view('profesores.unico');
+    }
+
+    public function obtenerProfesor(UnicoRequest $request)
+    {
+        $id = $request->get('id');
+
+        $profesor = $this->obtenerUnProfesor($id);
+
+        return view('profesores.mostrar', ['profesor' => $profesor]);
+    }
+
+    protected function obtenerUnProfesor($id)
+    {
+        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/profesores/{$id}");
+
+        $datos = json_decode($respuesta);
+
+        $profesor = $datos->data;
+
+        return $profesor;
     }
 }
