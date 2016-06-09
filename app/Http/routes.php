@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/cursos', 'CursosController@mostrarCursos');
+
 Route::get('/estudiantes', 'EstudiantesController@mostrarEstudiantes');
 
 Route::get('/', function () {
