@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="list-group">
-			<a href="#" class="list-group-item">Obtener Un Estudiante</a>
+			<a href="{{url('/estudiantes/unico')}}" class="list-group-item">Obtener Un Estudiante</a>
 			<a href="#" class="list-group-item">Obtener Un Profesor</a>
 			<a href="#" class="list-group-item">Obtener Un Curso</a>
 		</div>
