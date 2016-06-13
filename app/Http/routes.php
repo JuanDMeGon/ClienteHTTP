@@ -11,6 +11,10 @@
 |
 */
 
+Route::post('/estudiantes/agregar', 'EstudiantesController@crearEstudiante');
+
+Route::get('/estudiantes/agregar', 'EstudiantesController@agregarEstudiante');
+
 Route::post('/cursos/unico', 'CursosController@obtenerCurso');
 
 Route::get('/cursos/unico', 'CursosController@mostrarCurso');

@@ -12,4 +12,8 @@
 			<a href="{{url('/profesores/unico')}}" class="list-group-item">Obtener Un Profesor</a>
 			<a href="{{url('/cursos/unico')}}" class="list-group-item">Obtener Un Curso</a>
 		</div>
+
+		<div class="list-group">
+			<a href="{{url('/estudiantes/agregar')}}" class="list-group-item">Agregar Un Estudiante</a>
+		</div>
 @endsection
