@@ -15,5 +15,6 @@
 
 		<div class="list-group">
 			<a href="{{url('/estudiantes/agregar')}}" class="list-group-item">Agregar Un Estudiante</a>
+			<a href="{{url('/profesores/agregar')}}" class="list-group-item">Agregar Un Profesor</a>
 		</div>
 @endsection

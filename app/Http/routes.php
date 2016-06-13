@@ -11,6 +11,10 @@
 |
 */
 
+Route::post('/profesores/agregar', 'ProfesoresController@crearProfesor');
+
+Route::get('/profesores/agregar', 'ProfesoresController@agregarProfesor');
+
 Route::post('/estudiantes/agregar', 'EstudiantesController@crearEstudiante');
 
 Route::get('/estudiantes/agregar', 'EstudiantesController@agregarEstudiante');

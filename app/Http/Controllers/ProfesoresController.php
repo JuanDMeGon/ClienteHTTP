@@ -52,4 +52,18 @@ class ProfesoresController extends Controller
 
         return $profesor;
     }
+
+    public function agregarProfesor()
+    {
+        return view('profesores.agregar');
+    }
+
+    public function crearProfesor(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $respuesta = $this->realizarPeticion('POST', 'https://apilumen.juandmegon.com/profesores', ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->all()]);
+
+        return redirect('/profesores');
+    }
 }
