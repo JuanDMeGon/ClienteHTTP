@@ -22,4 +22,17 @@ class Controller extends BaseController
 
     	return $respuesta->getBody()->getContents();
     }
+
+    protected function obtenerAccessToken()
+    {
+    	$clientId = config('api.client_id');
+    	$clientSecret = config('api.client_secret');
+    	$grantType = config('api.grant_type');
+
+    	$respuesta = json_decode($this->realizarPeticion('POST', 'https://apilumen.juandmegon.com/oauth/access_token', ['form_params' => ['grant_type' => $grantType, 'client_id' => $clientId, 'client_secret' => $clientSecret]]));
+
+    	$accessToken = $respuesta->access_token;
+
+    	return $accessToken;
+    }
 }
