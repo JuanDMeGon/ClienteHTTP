@@ -11,6 +11,12 @@
 |
 */
 
+Route::put('/profesores/actualizar', 'ProfesoresController@actualizarProfesor');
+
+Route::post('/profesores/actualizar', 'ProfesoresController@editarProfesor');
+
+Route::get('/profesores/actualizar', 'ProfesoresController@elegirProfesor');
+
 Route::put('/estudiantes/actualizar', 'EstudiantesController@actualizarEstudiante');
 
 Route::post('/estudiantes/actualizar', 'EstudiantesController@editarEstudiante');

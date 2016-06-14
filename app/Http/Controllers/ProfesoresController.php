@@ -66,4 +66,31 @@ class ProfesoresController extends Controller
 
         return redirect('/profesores');
     }
+
+    public function elegirProfesor()
+    {
+        $profesores = $this->obtenerTodosLosProfesores();
+
+        return view('profesores.elegir', ['profesores' => $profesores]);
+    }
+
+    public function editarProfesor(Request $request)
+    {
+        $id = $request->get('profesor_id');
+
+        $profesor = $this->obtenerUnProfesor($id);
+
+        return view('profesores.editar', ['profesor' => $profesor]);
+    }
+
+    public function actualizarProfesor(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $id = $request->get('id');
+
+        $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/profesores/{$id}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
+
+        return redirect('/profesores');
+    }
 }
