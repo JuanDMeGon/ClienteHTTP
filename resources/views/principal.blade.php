@@ -22,4 +22,8 @@
 			<a href="{{url('/estudiantes/actualizar')}}" class="list-group-item">Actualizar Un Estudiante</a>
 			<a href="{{url('/profesores/actualizar')}}" class="list-group-item">Actualizar Un Profesor</a>
 		</div>
+
+		<div class="list-group">
+			<a href="{{url('/estudiantes/eliminar')}}" class="list-group-item">Eliminar Un Estudiante</a>
+		</div>
 @endsection
