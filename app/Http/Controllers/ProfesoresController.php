@@ -93,4 +93,22 @@ class ProfesoresController extends Controller
 
         return redirect('/profesores');
     }
+
+    public function seleccionarProfesor()
+    {
+        $profesores = $this->obtenerTodosLosProfesores();
+
+        return view('profesores.seleccionar', ['profesores' => $profesores]);
+    }
+
+    public function eliminarProfesor(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $id = $request->get('profesor_id');
+
+        $respuesta = $this->realizarPeticion('DELETE', "https://apilumen.juandmegon.com/profesores/{$id}", ['headers' => ['Authorization' => $accessToken]]);
+
+        return redirect('/profesores');
+    }
 }
