@@ -8,24 +8,13 @@ use ClienteHTTP\Http\Requests;
 
 use ClienteHTTP\Http\Requests\UnicoRequest;
 
-class CursosController extends Controller
+class CursosController extends ClienteController
 {
     public function mostrarCursos()
     {
     	$cursos = $this->obtenerTodosLosCursos();
 
     	return view('cursos.todos', ['cursos' => $cursos]);
-    }
-
-    protected function obtenerTodosLosCursos()
-    {
-    	$respuesta = $this->realizarPeticion('GET', 'https://apilumen.juandmegon.com/cursos');
-
-    	$datos = json_decode($respuesta);
-
-    	$cursos = $datos->data;
-
-    	return $cursos;
     }
 
     public function mostrarCurso()
@@ -40,16 +29,5 @@ class CursosController extends Controller
         $curso = $this->obtenerUnCurso($id);
 
         return view('cursos.mostrar', ['curso' => $curso]);
-    }
-
-    protected function obtenerUnCurso($id)
-    {
-        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/cursos/{$id}");
-
-        $datos = json_decode($respuesta);
-
-        $curso = $datos->data;
-
-        return $curso;
     }
 }
