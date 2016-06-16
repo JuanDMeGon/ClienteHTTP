@@ -132,4 +132,19 @@ class ClienteController extends Controller
 
         $respuesta = $this->realizarPeticion('DELETE', "https://apilumen.juandmegon.com/profesores/{$id}", ['headers' => ['Authorization' => $accessToken]]);
     }
+
+
+    /**
+     * Métodos para CursosEstudiantes
+     */
+    protected function obtenerEstudiantesCurso($cursoId)
+    {
+        $respuesta = $this->realizarPeticion('GET', "https://apilumen.juandmegon.com/cursos/{$cursoId}/estudiantes");
+
+        $datos = json_decode($respuesta);
+
+        $estudiantes = $datos->data;
+
+        return $estudiantes;
+    }
 }
