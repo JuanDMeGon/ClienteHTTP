@@ -31,5 +31,7 @@
 
 		<div class="list-group">
 			<a href="{{url('/cursos/estudiantes')}}" class="list-group-item">Obtener los Estudiantes de Un Curso</a>
+
+			<a href="{{url('/profesores/cursos')}}" class="list-group-item">Obtener los Cursos de Un Profesor</a>
 		</div>
 @endsection
