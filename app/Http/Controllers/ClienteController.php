@@ -33,6 +33,15 @@ class ClienteController extends Controller
         return $curso;
     }
 
+    protected function almacenarCurso(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $idProfesor = $request->get('profesor_id');
+
+        $respuesta = $this->realizarPeticion('POST', "https://apilumen.juandmegon.com/profesores/{$idProfesor}/cursos", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->all()]);
+    }
+
     /**
      * Métodos para Estudiantes
      */

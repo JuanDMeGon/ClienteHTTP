@@ -16,6 +16,8 @@
 		<div class="list-group">
 			<a href="{{url('/estudiantes/agregar')}}" class="list-group-item">Agregar Un Estudiante</a>
 			<a href="{{url('/profesores/agregar')}}" class="list-group-item">Agregar Un Profesor</a>
+
+			<a href="{{url('/profesores/cursos/agregar')}}" class="list-group-item">Agregar un Curso</a>
 		</div>
 
 		<div class="list-group">
