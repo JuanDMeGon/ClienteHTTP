@@ -30,6 +30,8 @@
 			<a href="{{url('/estudiantes/eliminar')}}" class="list-group-item">Eliminar Un Estudiante</a>
 
 			<a href="{{url('/profesores/eliminar')}}" class="list-group-item">Eliminar Un Profesor</a>
+
+			<a href="{{url('/profesores/cursos/eliminar')}}" class="list-group-item">Eliminar Un Curso</a>
 		</div>
 
 		<div class="list-group">
