@@ -37,4 +37,28 @@ class ProfesorCursosController extends ClienteController
 
         return redirect('/cursos');
     }
+
+    public function elegirCurso()
+    {
+        $cursos = $this->obtenerTodosLosCursos();
+
+        return view('profesor-cursos.todos', ['cursos' => $cursos]);
+    }
+
+    public function editarCurso(Request $request)
+    {
+        $idCurso = $request->get('curso_id');
+
+        $curso = $this->obtenerUnCurso($idCurso);
+        $profesores = $this->obtenerTodosLosProfesores();
+
+        return view('profesor-cursos.editar', ['curso' => $curso, 'profesores' => $profesores]);
+    }
+
+    public function actualizarCurso(Request $request)
+    {
+        $this->modificarCurso($request);
+
+        return redirect('/cursos');
+    }
 }

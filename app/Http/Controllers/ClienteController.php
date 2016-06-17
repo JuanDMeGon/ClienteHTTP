@@ -181,4 +181,14 @@ class ClienteController extends Controller
 
         return $cursos;
     }
+
+    protected function modificarCurso(Request $request)
+    {
+        $accessToken = 'Bearer ' . $this->obtenerAccessToken();
+
+        $idCurso = $request->get('curso_id');
+        $idProfesor = $request->get('profesor_id');
+
+        $respuesta = $this->realizarPeticion('PUT', "https://apilumen.juandmegon.com/profesores/{$idProfesor}/cursos/{$idCurso}", ['headers' => ['Authorization' => $accessToken], 'form_params' => $request->except('id')]);
+    }
 }
