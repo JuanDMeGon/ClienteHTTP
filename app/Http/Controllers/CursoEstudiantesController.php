@@ -23,4 +23,19 @@ class CursoEstudiantesController extends ClienteController
 
     	return view('curso-estudiantes.estudiantes', ['estudiantes' => $estudiantes]);
     }
+
+    public function mostrarEstudiantesCursos()
+    {
+        $cursos = $this->obtenerTodosLosCursos();
+        $estudiantes = $this->obtenerTodosLosEstudiantes();
+
+        return view('curso-estudiantes.mostrar', ['cursos' => $cursos, 'estudiantes' => $estudiantes]);
+    }
+
+    public function agregarEstudianteCurso(Request $request)
+    {
+        $this->agregarEstudianteCursos($request);
+
+        return redirect('/cursos/estudiantes');
+    }
 }
