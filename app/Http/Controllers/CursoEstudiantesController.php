@@ -38,4 +38,26 @@ class CursoEstudiantesController extends ClienteController
 
         return redirect('/cursos/estudiantes');
     }
+
+    public function seleccionarCurso()
+    {
+        $cursos = $this->obtenerTodosLosCursos();
+
+        return view('curso-estudiantes.seleccionar-curso', ['cursos' => $cursos]);
+    }
+
+    public function seleccionarEstudianteCurso(Request $request)
+    {
+        $cursoId = $request->get('curso_id');
+        $estudiantes = $this->obtenerEstudiantesCurso($cursoId);
+
+        return view('curso-estudiantes.seleccionar-estudiante', ['estudiantes' => $estudiantes, 'cursoId' => $cursoId]);        
+    }
+
+    public function eliminarEstudianteCurso(Request $request)
+    {
+        $this->removerEstudianteCurso($request);
+
+        return redirect('/cursos/estudiantes');
+    }
 }
