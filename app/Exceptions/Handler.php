@@ -53,7 +53,12 @@ class Handler extends ExceptionHandler
 
             $mensaje = $mensaje->message;
 
-            return redirect()->back()->withErrors(['cliente' => $mensaje])->withInput($request->all());
+            if(!is_string($mensaje))
+            {
+                $mensaje = collect($mensaje)->collapse();
+            }
+
+            return redirect()->back()->withErrors($mensaje)->withInput($request->all());
         }
         
         return parent::render($request, $e);
