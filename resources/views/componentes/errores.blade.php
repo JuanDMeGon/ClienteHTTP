@@ -1,4 +1,4 @@
-@if(sizeof($errors) > 0)
+@if(isset($errors) && sizeof($errors) > 0)
 
 <div class="alert alert-danger">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
