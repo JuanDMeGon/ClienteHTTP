@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use GuzzleHttp\Exception\ClientException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -45,6 +47,15 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if($e instanceof ClientException)
+        {
+            $mensaje = json_decode($e->getResponse()->getBody()->getContents());
+
+            $mensaje = $mensaje->message;
+
+            return redirect()->back()->withErrors(['cliente' => $mensaje])->withInput($request->all());
+        }
+        
         return parent::render($request, $e);
     }
 }
