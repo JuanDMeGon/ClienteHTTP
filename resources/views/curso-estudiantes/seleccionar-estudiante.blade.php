@@ -13,6 +13,7 @@
 			<div class="form-group">
 				<label for="">Estudiante</label>
 				<select name="estudiante_id" id="inputEstudiante_id" class="form-control" required="required">
+					<option>Por favor elija un estudiante</option>
 					@foreach($estudiantes as $estudiante)
 					<option value="{{$estudiante->id}}">{{$estudiante->nombre}}</option>
 					@endforeach

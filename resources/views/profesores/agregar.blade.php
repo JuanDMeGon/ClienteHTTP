@@ -24,7 +24,7 @@
 			<div class="form-group">
 				<label for="">Profesión</label>
 				<select name="profesion" id="inputCarrera" class="form-control" required="required">
-					<option>Por fabor selecciones una carrera</option>
+					<option>Por favor selecciones una carrera</option>
 					<option value="ingeniería">Ingeniería</option>
 					<option value="matemática">Matemática</option>
 					<option value="física">Física</option>
